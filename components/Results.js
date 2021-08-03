@@ -1,26 +1,28 @@
-import { useRef, useEffect } from "react"
+import { useRouter } from "next/router"
 import Thumbnail from "./Thumbnail"
-import gsap from "gsap"
-const Results = ({ results, genre }) => {
-  const parentRef = useRef()
-  useEffect(() => {
-    gsap.from(parentRef.current.children, {
-      opacity: 0,
-      y: 50,
-      stagger: 0.1,
-    })
-  }, [results])
+import { capitalize } from "../utils/truncate"
+import Head from "next/head"
+import Pagination from "./layout/Pagination"
+const Results = ({ data, genre }) => {
+  const router = useRouter()
   return (
     <>
-      <h1 className='capitalize text-center p-5'>
-        {genre !== "TV" ? `${genre} Movies` : `${genre} series`}
-      </h1>
-      <div
-        ref={parentRef}
-        className='grid grid-flow-row grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 mx-auto max-w-full px-48 justify-items-center'>
-        {results.map((el, i) => (
-          <Thumbnail key={el.id} result={el} />
-        ))}
+      <Head>
+        <title>Moovy | {capitalize(genre)}</title>
+      </Head>
+      <div className='container px-4 sm:px-8 lg:px-24 mx-auto'>
+        <h1 className='capitalize text-center p-5'>
+          {genre !== "TV" ? `${genre} Movies` : `${genre} series`}
+        </h1>
+        <div className='grid gap-12 grid-flow-row grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 mx-auto justify-items-center'>
+          {data.results.map((el, i) => (
+            <Thumbnail key={el.id} result={el} />
+          ))}
+        </div>
+        {
+          /* make sure we are not on the home page */
+          router.asPath !== "/" && <Pagination pagesCount={data.total_pages} />
+        }
       </div>
     </>
   )

@@ -30,6 +30,10 @@ export default {
     title: "SciFi",
     url: `/discover/movie?api_key=${API_KEY}&with_genres=878`,
   },
+  thriller: {
+    title: "Thriller",
+    url: `/discover/movie?api_key=${API_KEY}&with_genres=53`,
+  },
   western: {
     title: "Western",
     url: `/discover/movie?api_key=${API_KEY}&with_genres=37`,
@@ -37,9 +41,5 @@ export default {
   animation: {
     title: "Animation",
     url: `/discover/movie?api_key=${API_KEY}&with_genres=16`,
-  },
-  TV: {
-    title: "TV Series",
-    url: `/discover/movie?api_key=${API_KEY}&with_genres=10770`,
   },
 }
