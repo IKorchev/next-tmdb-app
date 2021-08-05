@@ -16,6 +16,7 @@ const Movie = ({ data }) => {
         <title>{data.original_title || data.name} | Moovy</title>
         <meta name='description' content={data.overview} />
       </Head>
+      {console.log(data)}
       <div className='bg-gray-100 mx-auto py-5 px-12 lg:px-0'>
         <div ref={ref} className='mx-auto xl:max-w-6xl grid grid-cols-1 lg:grid-cols-2'>
           <div className='lg:px-12 mb-5'>

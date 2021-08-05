@@ -5,6 +5,7 @@ module.exports = {
     boxShadow: {
       "2xl": "0 0 15px rgba(0, 0, 0, 0.3)",
     },
+
     fontFamily: {
       notosans: ["Noto\\ Sans", "sans-serif"],
     },
@@ -15,10 +16,14 @@ module.exports = {
       keyframes: {
         btnAnimation: "",
       },
+      fontSize: {
+        xxs: "0.55rem",
+      },
     },
   },
   variants: {
     extend: {
+      textDecoration: ["hover"],
       animation: ["hover"],
       transform: ["hover"],
       textColor: ["active"],

@@ -13,7 +13,7 @@
     @apply text-2xl;
   }
   .nav-link {
-    @apply flex flex-col items-center justify-center transition-transform duration-200 ease-in-out text-xl py-2 mx-1 md:mx-3 px-2 text-gray-900 font-semibold rounded-lg transform hover:scale-105 hover:text-gray-700;
+    @apply flex flex-col items-center justify-center transition-transform duration-200 ease-in-out text-xl py-2 mx-1 md:mx-3 px-2 text-white font-semibold rounded-lg transform hover:scale-105 hover:text-gray-700;
   }
 }
 

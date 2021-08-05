@@ -2,7 +2,7 @@ import { useRouter } from "next/router"
 import Thumbnail from "./Thumbnail"
 import { capitalize } from "../utils/truncate"
 import Head from "next/head"
-import Pagination from "./layout/Pagination"
+import Pagination from "./Pagination"
 const Results = ({ data, genre }) => {
   const router = useRouter()
   return (
@@ -10,6 +10,7 @@ const Results = ({ data, genre }) => {
       <Head>
         <title>Moovy | {capitalize(genre)}</title>
       </Head>
+      
       <div className='container px-4 sm:px-8 lg:px-24 mx-auto'>
         <h1 className='capitalize text-center p-5'>
           {genre !== "TV" ? `${genre} Movies` : `${genre} series`}

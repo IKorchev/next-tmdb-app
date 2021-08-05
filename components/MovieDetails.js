@@ -3,7 +3,7 @@ import ImdbIcon from "../assets/imdb.png"
 import { ExternalLinkIcon } from "@heroicons/react/solid"
 const MovieDetails = ({ data }) => {
   return (
-    <div className='flex flex-col text-lg '>
+    <div className='flex flex-col text-lg px-12'>
       <div className='flex justify-around mb-5 border-b'>
         {data.genres?.map((el) => (
           <span key={el.id}>{el.name}</span>
