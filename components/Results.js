@@ -8,9 +8,11 @@ const Results = ({ data, genre }) => {
   return (
     <>
       <Head>
-        <title>Moovy | {capitalize(genre)}</title>
+        <title>Moovy | {`${capitalize(genre)} Movies` || "Home"}</title>
+        <meta property='og:title' content='Moovy | Movie and TV Series library' />
+        <meta property='og:image' content='../assets/Moovy.png' />
       </Head>
-      
+
       <div className='container px-4 sm:px-8 lg:px-24 mx-auto'>
         <h1 className='capitalize text-center p-5'>
           {genre !== "TV" ? `${genre} Movies` : `${genre} series`}
