@@ -10,7 +10,11 @@ const Results = ({ data, genre }) => {
       <Head>
         <title>Moovy | {`${capitalize(genre)} Movies` || "Home"}</title>
         <meta property='og:title' content='Moovy | Movie and TV Series library' />
-        <meta property='og:image' content='../assets/Moovy.png' />
+        <meta property='og:image' content='https://i.ibb.co/gyzY3gh/Moovy.png' />
+        <meta
+          property='og:image:secure_url'
+          content='https://i.ibb.co/gyzY3gh/Moovy.png'
+        />
       </Head>
 
       <div className='container px-4 sm:px-8 lg:px-24 mx-auto'>
