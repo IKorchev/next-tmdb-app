@@ -3,8 +3,11 @@ import Thumbnail from "./Thumbnail"
 import { capitalize } from "../utils/truncate"
 import Head from "next/head"
 import Pagination from "./Pagination"
+import _ from "lodash/core"
 const Results = ({ data, genre }) => {
   const router = useRouter()
+  const iteratees = (obj) => -obj.vote_average
+
   return (
     <>
       <Head>
@@ -22,7 +25,7 @@ const Results = ({ data, genre }) => {
           {genre !== "TV" ? `${genre} Movies` : `${genre} series`}
         </h1>
         <div className='grid gap-12 grid-flow-row grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 mx-auto justify-items-center'>
-          {data.results.map((el, i) => (
+          {_.sortBy(data.results, iteratees).map((el, i) => (
             <Thumbnail key={el.id} result={el} />
           ))}
         </div>

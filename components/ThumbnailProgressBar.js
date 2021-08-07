@@ -22,7 +22,7 @@ const ThumbnailProgressBar = ({ data, className, fill }) => {
           />
         </svg>
         <p className='absolute text-sm top-1/2 w-full  transform translate-x-1/3 -translate-y-1/2'>
-          {data * 10}
+          {(data || 0) * 10}
           <sup className='text-xxs '>%</sup>
         </p>
       </div>

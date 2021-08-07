@@ -1,8 +1,8 @@
 import Image from "next/image"
-import Link from "next/link"
 import router from "next/router"
 import { truncateString } from "../utils/truncate"
 import ThumbnailProgressBar from "./ThumbnailProgressBar"
+import genres from "../utils/movieGenres"
 const Thumbnail = ({ result, parentRef }) => {
   const url = "https://image.tmdb.org/t/p/original"
   const {
@@ -15,7 +15,11 @@ const Thumbnail = ({ result, parentRef }) => {
     title,
     overview,
     vote_average,
+    genre_ids,
   } = result
+
+  // TMDB does not provide the name of the genre, only the ids
+  const movieGenres = genres.filter((element) => genre_ids?.includes(element.id) || "")
 
   return (
     <div className=' max-w-lg min-w-full shadow-2xl rounded-lg overflow-hidden'>
@@ -29,13 +33,28 @@ const Thumbnail = ({ result, parentRef }) => {
           e.preventDefault()
           router.push(`/movie/${id}`)
         }}
-        src={`${url}${backdrop_path || poster_path}`}
+        src={
+          backdrop_path
+            ? url + backdrop_path
+            : poster_path
+            ? url + poster_path
+            : "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/No_image_3x4.svg/1200px-No_image_3x4.svg.png"
+        }
       />
 
       <div className='px-5 py-5 pb-5 relative'>
-        <h2 className='my-2 font-bold'>
+        <h2 className='mt-2 font-bold'>
           {title || original_title || name || original_name}
         </h2>
+        <div className='flex flex-wrap mb-5 mt-2'>
+          {movieGenres.map(({ name, id }) => (
+            <p
+              key={id}
+              className='bg-gray-200 inline-flex text-center text-black whitespace-nowrap text-xs px-2 mb-1 py-1 mr-3 rounded-full'>
+              {name}
+            </p>
+          ))}
+        </div>
         <p className='mb-3'>{truncateString(overview, 150)}</p>
         <button
           onClick={(e) => {
@@ -45,10 +64,7 @@ const Thumbnail = ({ result, parentRef }) => {
           className='cursor-pointer text-blue-500 hover:text-blue-900 py-2'>
           More info
         </button>
-        <ThumbnailProgressBar
-          data={vote_average}
-          className='absolute -top-7 right-3'
-        />
+        <ThumbnailProgressBar data={vote_average} className='absolute -top-7 right-3' />
       </div>
     </div>
   )
