@@ -1,11 +1,27 @@
-import { useState } from "react"
 import Link from "next/link"
+import jazzicon from "@metamask/jazzicon"
 import { menuItems } from "../../utils/menuItems"
-import { UserCircleIcon } from "@heroicons/react/solid"
+import {
+  useEtherBalance,
+  useEthers,
+  shortenAddress,
+  useTokenBalance,
+} from "@usedapp/core"
+import { formatEther } from "@ethersproject/units"
+import { useEffect, useRef } from "react"
 
 const Navbar = () => {
-  const [active, setActive] = useState(false)
+  const iconRef = useRef()
+  const { activateBrowserWallet, account, chainId, library } = useEthers()
+  const etherBalance = useEtherBalance(account)
+  const xBalance = useTokenBalance("0x419ae022948a917bd3b0e79b790434487e308fe6", account)
 
+  useEffect(() => {
+    if (account && iconRef.current) {
+      iconRef.current.innerHTML = ""
+      iconRef.current.appendChild(jazzicon(12, parseInt(account.slice(2, 10), 16)))
+    }
+  }, [account])
   return (
     <nav className='bg-gray-800 border-b-2'>
       <div className='container flex justify-between items-center lg:px-36 relative mx-auto'>
@@ -17,50 +33,22 @@ const Navbar = () => {
             </Link>
           ))}
         </div>
-        <div className='relative'>
-          <a
-            className='nav-link flex flex-col items-center'
-            onClick={(e) => {
-              e.preventDefault()
-              setActive((state) => !state)
-            }}
-            href=''>
-            <UserCircleIcon className='h-10 w-10 text-white' />
-          </a>
-          <div
-            className={`bg-gray-700 transform transition duration-900 origin-top-right z-10 ${
-              active ? "scale-100" : "scale-0"
-            } flex-col absolute w-96 text-center text-white top-3/4 right-1/2 md:w-56 rounded-xl shadow-lg py-1 focus:outline-none`}
-            role='menu'
-            aria-orientation='vertical'
-            aria-labelledby='user-menu-button'
-            tabIndex='-1'>
-            <a
-              href='#'
-              className='block p-4 text-lg hover:bg-gray-200 hover:text-gray-900'
-              role='menuitem'
-              tabIndex='-1'
-              id='user-menu-item-0'>
-              Your Profile
-            </a>
-            <a
-              href='#'
-              className='block p-4 text-lg hover:bg-gray-200 hover:text-gray-900'
-              role='menuitem'
-              tabIndex='-1'
-              id='user-menu-item-1'>
-              Settings
-            </a>
-            <a
-              href='#'
-              className='block p-4 text-lg font-semibold hover:bg-gray-200 hover:text-gray-900'
-              role='menuitem'
-              tabIndex='-1'
-              id='user-menu-item-2'>
-              Sign out
-            </a>
+
+        {account && (
+          <div className='text-white flex items-center bg-gray-700 border border-gray-500 rounded-xl'>
+            {chainId === 56 ? (
+              <p className='px-2 py-2  text-sm'>
+                {` ${etherBalance ? formatEther(xBalance) : "Loading..."} xQc`}
+              </p>
+            ) : (
+              <h1 className='bg-gray-700 px-2 py-2 rounded-xl text-sm'>Change to BSC</h1>
+            )}
+            <p className='bg-gray-900 px-2 py-1.5 rounded-xl text-sm flex items-center'>
+              {shortenAddress(account)}
+              <span className='ml-3 mr-1' ref={iconRef}></span>
+            </p>
           </div>
-        </div>
+        )}
       </div>
     </nav>
   )
