@@ -1,7 +1,7 @@
 const ThumbnailProgressBar = ({ data, className, fill }) => {
   const progress = data * 10
   const radius = 24
-  const stroke = 4
+  const stroke = 6
   const normalizedRadius = radius - stroke * 2 + stroke
   const circumference = normalizedRadius * 2 * Math.PI
   const strokeDashoffset = circumference - (progress / 100) * circumference
@@ -11,7 +11,9 @@ const ThumbnailProgressBar = ({ data, className, fill }) => {
       <div className='relative'>
         <svg className=' transform -rotate-90' height={radius * 2} width={radius * 2}>
           <circle
-            stroke={progress < 50 ? "#FF6D8E" : progress < 70 ? "#F6FF69" : "#00FFC9"}
+            stroke={
+              progress < 50 || 0 ? "#FF6D8E" : progress < 70 ? "#F6FF69" : "#00FFC9"
+            }
             fill={fill || "transparent"}
             strokeWidth={stroke}
             strokeDasharray={circumference}

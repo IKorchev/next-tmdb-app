@@ -42,8 +42,8 @@ const Thumbnail = ({ result, parentRef }) => {
         }
       />
 
-      <div className='px-5 py-5 pb-5 relative'>
-        <h2 className='mt-2 font-bold'>
+      <div className='px-8 py-5 pb-5 relative'>
+        <h2 className='text-3xl mt-2 font-bold'>
           {title || original_title || name || original_name}
         </h2>
         <div className='flex flex-wrap mb-5 mt-2'>
@@ -55,13 +55,13 @@ const Thumbnail = ({ result, parentRef }) => {
             </p>
           ))}
         </div>
-        <p className='mb-3'>{truncateString(overview, 150)}</p>
+        <p className='mb-3'>{truncateString(overview, 80)}</p>
         <button
           onClick={(e) => {
             e.preventDefault()
             router.push(`/movie/${id}`)
           }}
-          className='cursor-pointer text-blue-500 hover:text-blue-900 py-2'>
+          className='cursor-pointer text-white p-2 rounded-md bg-gray-800 hover:bg-gray-900 hover:shadow-2xl transform active:scale-95 active:shadow-2xl'>
           More info
         </button>
         <ThumbnailProgressBar data={vote_average} className='absolute -top-7 right-3' />

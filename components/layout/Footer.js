@@ -27,21 +27,21 @@ const Footer = () => {
               </div>
             ))}
           </div>
-          <div className='flex px-36 mx-auto py-4 md:px-4 lg:px-24'>
-            <a  href=''>
-              <TelegramIcon className='h-8 px-2 mx-2 text-blue-500 hover:opacity-70' />
+          <div className='flex justify-evenly px-24 lg:px-32'>
+            <a href=''>
+              <TelegramIcon className='h-6  text-blue-500 hover:opacity-70' />
             </a>
             <a href=''>
-              <DiscordIcon className='h-8 px-2 mx-2 text-blue-400 hover:opacity-70' />
+              <DiscordIcon className='h-6 text-blue-400 hover:opacity-70' />
             </a>
             <a href=''>
-              <FacebookIcon className='h-6 px-2 mx-2 text-blue-900 hover:opacity-70' />
+              <FacebookIcon className='h-6 text-blue-900 hover:opacity-70' />
             </a>
             <a href=''>
-              <TwitterIcon className='h-6 px-2 mx-2 text-blue-500 hover:opacity-70' />
+              <TwitterIcon className='h-6 text-blue-500 hover:opacity-70' />
             </a>
             <a href=''>
-              <InstagramIcon className='h-6 px-2 mx-2 text-gray-700 hover:opacity-70' />
+              <InstagramIcon className='h-6 text-gray-700 hover:opacity-70' />
             </a>
           </div>
         </div>

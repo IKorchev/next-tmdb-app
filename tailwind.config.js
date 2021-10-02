@@ -10,12 +10,6 @@ module.exports = {
       notosans: ["Noto\\ Sans", "sans-serif"],
     },
     extend: {
-      animation: {
-        btnAnimation: "btnAnimation 1s ease-in-out infinite",
-      },
-      keyframes: {
-        btnAnimation: "",
-      },
       fontSize: {
         xxs: "0.55rem",
       },
@@ -25,8 +19,10 @@ module.exports = {
     extend: {
       textDecoration: ["hover"],
       animation: ["hover"],
-      transform: ["hover"],
+      transform: ["hover", "active"],
       textColor: ["active"],
+      backgroundColor: ["active"],
+      scale: ["active"],
     },
   },
   plugins: [require("tailwind-scrollbar-hide")],
