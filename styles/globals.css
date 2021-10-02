@@ -15,6 +15,12 @@
   .nav-link {
     @apply flex flex-col items-center justify-center transition-transform duration-200 ease-in-out text-xl py-2 mx-1 md:mx-3 px-2 text-white font-semibold rounded-lg transform hover:scale-105 hover:text-gray-300;
   }
+  .genres-link {
+    @apply whitespace-nowrap text-lg font-semibold p-3 mx-5 transition duration-300 ease-in md:transform md:hover:scale-105 md:hover:text-white text-center;
+  }
+  .genres-link-active {
+    @apply text-blue-300 border-b-2 border-blue-300 hover:text-blue-300;
+  }
 }
 
 #genres-wrapper::-webkit-scrollbar {

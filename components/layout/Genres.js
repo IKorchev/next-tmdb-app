@@ -13,7 +13,8 @@ const Genres = () => {
               router.push(`/?genre=${key}`)
             }}
             key={title}
-            className='whitespace-nowrap text-lg font-semibold p-3 mx-5 transition duration-400 ease-in md:transform md:hover:scale-110 md:hover:text-white'>
+            className={`genres-link 
+            ${router.query.genre == key ? "genres-link-active" : ""}`}>
             {title}
           </button>
         ))}

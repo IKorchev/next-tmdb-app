@@ -3,7 +3,7 @@ export default [
   {
     title: "The Basics",
     links: [
-      { name: "About", url: "#" },
+      { name: "About", url: "/about" },
       { name: "Contact Us", url: "#" },
       { name: "Support Forums", url: "#" },
       { name: "API", url: "#" },

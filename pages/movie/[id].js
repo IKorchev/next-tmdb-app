@@ -1,8 +1,7 @@
 import Head from "next/head"
 import Image from "next/image"
-
-import { useEffect, useRef } from "react"
 import MovieDetails from "../../components/MovieDetails"
+
 const Movie = ({ data }) => {
   return (
     <>
@@ -10,7 +9,6 @@ const Movie = ({ data }) => {
         <title>{data.original_title || data.name} | Moovy</title>
         <meta name='description' content={data.overview} />
       </Head>
-      {console.log(data)}
       <div className='mx-auto py-5 px-12 lg:px-0'>
         <div
           className='mx-auto xl:max-w-6xl
