@@ -27,7 +27,7 @@ const Thumbnail = ({ result, parentRef }) => {
 
       <div className='px-4 py-5 pb-5 relative'>
         <h3 className='text-lg font-bold truncate'>{title || original_title || name || original_name}</h3>
-        <div className='flex my-2 gap-2'>
+        <div className='flex my-2 py-2 gap-2 custom-scroll custom-scroll--grey overflow-x-auto'>
           {movieGenres.map(({ name, id }) => (
             <p key={id} className='bg-gray-200 inline-flex text-center text-black whitespace-nowrap text-xs px-2 py-1 rounded-full'>
               {name}

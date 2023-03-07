@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
 @layer base {
   body {
     @apply font-notosans;
@@ -23,23 +23,20 @@
   }
 }
 
-#genres-wrapper::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+.custom-scroll::-webkit-scrollbar {
+  @apply h-1 w-1;
 }
 
 /* Track */
-#genres-wrapper::-webkit-scrollbar-track {
-  background: transparent;
+.custom-scroll::-webkit-scrollbar-track {
+  @apply bg-transparent;
 }
 
 /* Handle */
-#genres-wrapper::-webkit-scrollbar-thumb {
-  background: #5279a8;
-  border-radius: 100vh;
+.custom-scroll::-webkit-scrollbar-thumb {
+  @apply bg-blue-400 rounded-full hover:bg-blue-600;
 }
 
-/* Handle on hover */
-#genres-wrapper::-webkit-scrollbar-thumb:hover {
-  background: #394c64;
+.custom-scroll--grey::-webkit-scrollbar-thumb {
+  @apply bg-gray-200 hover:bg-gray-300;
 }
