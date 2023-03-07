@@ -9,7 +9,7 @@ const stayingintouch = () => {
           <AboutLinks />
         </div>
         <div className='flex-grow px-12'>
-          <h2 className='text-3xl'>Contact us</h2>
+          <h2>Contact us</h2>
           <p className='mt-4'>
             If you have any questions, comments, or suggestions, please feel free to contact us. We are always happy to hear from our users and are committed to providing the best possible experience for movie lovers. You can contact us
             through our website, social media channels, or by email.

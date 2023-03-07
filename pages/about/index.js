@@ -8,7 +8,7 @@ const About = () => {
           <AboutLinks />
         </div>
         <div className='flex-grow px-12'>
-          <h2 className='text-3xl'>Welcome to our Movie Website</h2>
+          <h2>Welcome to our Movie Website</h2>
           <p className='mt-4'>
             We are a movie website dedicated to providing you with the latest and greatest in movies, TV shows, and other entertainment content. Our team of experts is passionate about movies and is committed to bringing you the best
             reviews, ratings, and news about your favorite films.
