@@ -3,7 +3,7 @@ import React from 'react';
 const contact = () => {
   return (
     <>
-      <div className='container py-12 px-5 md:px-24'>
+      <div className='container mx-auto py-12 px-5 md:px-24'>
         <h2>Contact Us</h2>
         <p className='mt-3'>We&apos;re here to help! If you have any questions, comments, or concerns, please don&apos;t hesitate to reach out to us. You can contact us through any of the following channels:</p>
         <hr className='my-8' />
