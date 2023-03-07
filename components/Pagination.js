@@ -3,6 +3,7 @@ import ChevronDoubleRightIcon from "@heroicons/react/solid/ChevronDoubleRightIco
 import ChevronRightIcon from "@heroicons/react/solid/ChevronRightIcon"
 import ChevronDoubleLeftIcon from "@heroicons/react/solid/ChevronDoubleLeftIcon"
 import ChevronLeftIcon from "@heroicons/react/solid/ChevronLeftIcon"
+
 const Pagination = ({ pagesCount }) => {
   const router = useRouter()
   const handlePrevious = () => {
